@@ -4,7 +4,6 @@
   "addLabels": ["deps"],
   "extends": ["config:base", ":enablePreCommit", ":disableRateLimiting"],
   "dependencyDashboardApproval": false,
-  // "schedule": ["on the 16th day of the month"],
   "git-submodules": {
     "enabled": true
   },
