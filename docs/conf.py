@@ -11,6 +11,8 @@ PACKAGE = "softboiler_github_io"
 """Package name."""
 REPO = PACKAGE.replace("_", "-")
 """Repo name."""
+PROJECT = "softboiler"
+"""Project name."""
 DOCS = Path("docs")
 """Docs directory."""
 STATIC = DOCS / "_static"
@@ -79,7 +81,7 @@ def dpath(path: Path, rel: Path = DOCS) -> str:
 
 
 # ! Basics
-project = REPO
+project = PROJECT
 copyright = f"{date.today().year}, Blake Naccarato"  # noqa: A001
 version = "0.0.0"
 master_doc = "index"

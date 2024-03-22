@@ -1,3 +1,3 @@
-# [softboiler.github.io](https://softboiler.github.io/)
+# Softboiler
 
-Softboiler website.
+Softboiler [website](https://softboiler.org/).
