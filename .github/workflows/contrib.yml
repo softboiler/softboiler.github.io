@@ -59,9 +59,10 @@ jobs:
     strategy:
       matrix:
         runner:
-          - "macos-13"
-          - "macos-14"
-          - "windows-2022"
+          # - "macos-13"  # No code in `softboiler_github_io` right now
+          # - "macos-14"  # No code in `softboiler_github_io` right now
+          - "ubuntu-22.04"
+          # - "windows-2022"  # No code in `softboiler_github_io` right now
     runs-on: "${{ matrix.runner }}"
     steps:
       - uses: "actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11" # v4.1.1
