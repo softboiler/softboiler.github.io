@@ -126,6 +126,7 @@ jobs:
         run: "scripts/Sync-Py.ps1"
       - uses: "stefanzweifel/git-auto-commit-action@8756aa072ef5b4a080af5dc8fef36c5d586e521d" # v5.0.0
         with:
+          push_options: "--force"
           commit_message: "${{ github.actor == 'renovate[bot]' && 'Lock' || 'Sync project with template' }}"
   lock:
     if: github.event_name != 'pull_request'
@@ -164,4 +165,5 @@ jobs:
       - if: steps.changes.outputs.deps == 'true' && steps.changes.outputs.lock == 'false'
         uses: "stefanzweifel/git-auto-commit-action@8756aa072ef5b4a080af5dc8fef36c5d586e521d" # v5.0.0
         with:
+          push_options: "--force"
           commit_message: "Lock"
