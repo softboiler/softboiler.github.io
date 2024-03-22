@@ -9,6 +9,8 @@ from sphinx.application import Sphinx
 
 PACKAGE = "softboiler_github_io"
 """Package name."""
+REPO = PACKAGE.replace("_", "-")
+"""Repo name."""
 DOCS = Path("docs")
 """Docs directory."""
 STATIC = DOCS / "_static"
@@ -77,7 +79,7 @@ def dpath(path: Path, rel: Path = DOCS) -> str:
 
 
 # ! Basics
-project = PACKAGE
+project = REPO
 copyright = f"{date.today().year}, Blake Naccarato"  # noqa: A001
 version = "0.0.0"
 master_doc = "index"
@@ -106,7 +108,7 @@ html_context = {
     "default_mode": "light"
 }
 COMMON_OPTIONS = {
-    "repository_url": f"https://github.com/softboiler/{PACKAGE}",
+    "repository_url": f"https://github.com/blakeNaccarato/{REPO}",
     "path_to_docs": dpath(DOCS),
 }
 html_theme_options = {
