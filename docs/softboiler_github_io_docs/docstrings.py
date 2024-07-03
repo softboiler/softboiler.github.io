@@ -15,7 +15,11 @@ from docutils import nodes
 from myst_parser.parsers.sphinx_ import MystParser
 from numpydoc.docscrape import NumpyDocString, Parameter
 
-from softboiler_github_io_docs.types import RegularSection, SeeAlsoSection, SingleSeeAlso
+from softboiler_github_io_docs.types import (
+    RegularSection,
+    SeeAlsoSection,
+    SingleSeeAlso,
+)
 
 _PARAMETERS_SECTIONS: Final[tuple[str, ...]] = (
     "Parameters",
