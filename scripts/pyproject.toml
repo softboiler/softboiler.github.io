@@ -6,9 +6,30 @@ build-backend = "flit_core.buildapi"
 name = "softboiler_github_io_tools"
 version = "0.0.0"
 description = "Tools."
-dependencies = ["cyclopts==2.4.2"]
+dependencies = [
+    # ? Core script tools
+    "copier==9.2.0",
+    "cyclopts==2.7.1",
+    "dulwich==0.22.1",
+    "ipython==8.25.0",
+    "pipx==1.6.0",
+]
 [project.scripts]
-softboiler_github_io_tools = "softboiler_github_io_tools.__main__:main"
+"softboiler_github_io_tools" = "softboiler_github_io_tools.__main__:main"
 
 [tool.fawltydeps]
-actions = ["check_undeclared"]
+deps = ["scripts/pyproject.toml"]
+code = ["scripts/softboiler_github_io_tools"]
+ignore_undeclared = [
+    "softboiler_github_io_docs",
+    "softboiler_github_io_tests",
+    "softboiler_github_io_tools",
+    "softboiler_github_io",
+]
+ignore_unused = [
+    # ? Core script tools
+    "copier", # For template sync
+    "pipx",   # For `pipx run` of scripts with dependencies isolated by PEP 723
+    # ? Other deps
+    "ipython", # Used for local experimentation
+]

@@ -1,14 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Establish base config, schedule, and manager defaults",
-  "addLabels": ["deps"],
-  "extends": ["config:base", ":enablePreCommit", ":disableRateLimiting"],
+  "addLabels": ["dependencies"],
+  "extends": ["config:base", "group:all", ":enablePreCommit"],
   "dependencyDashboardApproval": false,
   "schedule": ["on the 16th day of the month"],
   "git-submodules": {
     "enabled": true
   },
   "enabledManagers": [
+    "devcontainer",
     "git-submodules",
     "github-actions",
     "pep621",
@@ -19,18 +20,18 @@
     "description": "Additionally monitor these files",
     "fileMatch": ["(^|/)requirements/.+$"]
   },
+  "ignorePaths": ["requirements/requirements.txt"],
   "packageRules": [
     {
-      "description": "Core dependencies, unmmatched by the rules below",
-      "groupName": "core",
-      "matchPackagePatterns": ["*"],
-      "matchUpdateTypes": ["minor", "patch"]
+      "description": "Sync with template",
+      "groupName": "template",
+      "matchManagers": ["git-submodules"],
+      "matchDepNames": ["submodules/template"]
     },
     {
-      "description": "Type checking dependencies",
-      "groupName": "type checking",
-      "matchManagers": ["pep621", "pip_requirements", "git-submodules"],
-      "matchPackageNames": ["pyright", "submodules/typings"]
+      "description": "Manually test `.devcontainer` updates separately",
+      "groupName": "devcontainer",
+      "matchManagers": ["devcontainer"]
     }
   ]
 }
