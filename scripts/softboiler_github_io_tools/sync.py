@@ -12,7 +12,7 @@ from subprocess import run
 
 from softboiler_github_io_tools.types import Dep, PythonVersion, SubmoduleInfoKind, ops
 
-MINIMUM_PYTHON = "3.11"
+MINIMUM_PYTHON = "3.10"
 """This project's default Python version."""
 
 # ! Dependencies
