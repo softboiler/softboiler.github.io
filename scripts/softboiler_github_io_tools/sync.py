@@ -3,14 +3,26 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
-from datetime import datetime, timezone
+from datetime import datetime
 from json import dumps, loads
 from pathlib import Path
 from re import finditer
 from shlex import quote, split
 from subprocess import run
+from sys import version_info
+from typing import TYPE_CHECKING
 
 from softboiler_github_io_tools.types import Dep, PythonVersion, SubmoduleInfoKind, ops
+
+if version_info >= (3, 11):  # noqa: UP036, RUF100
+    from datetime import UTC  # pyright: ignore[reportAttributeAccessIssue]
+else:
+    from datetime import timezone  # pyright: ignore[reportPossiblyUnboundVariable]
+
+    UTC = timezone.utc  # noqa: UP017, RUF100
+
+if TYPE_CHECKING:
+    UTC: timezone
 
 MINIMUM_PYTHON = "3.10"
 """This project's default Python version."""
@@ -128,7 +140,7 @@ class Compiler:
 
     def get_command(self) -> tuple[datetime, list[str]]:
         """Command to reproduce compilation requirements."""
-        time = datetime.now(timezone.utc)
+        time = datetime.now(UTC)
         return time, [
             "bin/uv",
             "pip",

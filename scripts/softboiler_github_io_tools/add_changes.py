@@ -20,9 +20,7 @@ def add_change(typ: ChangeType = "change"):
     change = get_change(owner, repo, issue)
     content = quote(f"{change.name}\n")
     run(
-        split(  # noqa: S603
-            f"""towncrier create --content {content} {change.id}.{typ}.md"""
-        ),
+        split(f"""towncrier create --content {content} {change.id}.{typ}.md"""),  # noqa: S603
         check=True,
     )
 
