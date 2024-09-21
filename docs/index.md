@@ -1,4 +1,4 @@
-# softboiler_github_io
+# Softboiler
 
 [![All Contributors](https://img.shields.io/github/all-contributors/softboiler/softboiler.github.io?color=ee8449&style=flat-square)](contributors)
 
